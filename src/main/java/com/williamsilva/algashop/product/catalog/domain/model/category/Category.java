@@ -1,7 +1,12 @@
 package com.williamsilva.algashop.product.catalog.domain.model.category;
 
 import com.williamsilva.algashop.product.catalog.domain.model.IdGenerator;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.util.StringUtils;
 
@@ -19,8 +24,20 @@ public class Category {
 
     private Boolean enabled;
 
+    @Version
+    private Long version;
+
+    @CreatedDate
     private OffsetDateTime createdAt;
+
+    @LastModifiedDate
     private OffsetDateTime updatedAt;
+
+    @CreatedBy
+    private UUID createdByUserId;
+
+    @LastModifiedBy
+    private UUID lastModifiedByUserId;
 
     protected Category() {}
 
@@ -28,7 +45,6 @@ public class Category {
         this.id = IdGenerator.generateTimeBasedUUID();
         this.setName(name);
         this.setEnabled(enabled);
-        this.createdAt = OffsetDateTime.now();
     }
 
     public UUID getId() {
@@ -49,6 +65,18 @@ public class Category {
 
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public UUID getCreatedByUserId() {
+        return createdByUserId;
+    }
+
+    public UUID getLastModifiedByUserId() {
+        return lastModifiedByUserId;
     }
 
     public void setName(String name) {
