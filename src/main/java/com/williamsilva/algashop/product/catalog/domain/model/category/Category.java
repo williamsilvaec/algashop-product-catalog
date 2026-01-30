@@ -1,5 +1,6 @@
 package com.williamsilva.algashop.product.catalog.domain.model.category;
 
+import com.williamsilva.algashop.product.catalog.domain.model.IdGenerator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.util.StringUtils;
@@ -24,6 +25,7 @@ public class Category {
     protected Category() {}
 
     public Category(String name, Boolean enabled) {
+        this.id = IdGenerator.generateTimeBasedUUID();
         this.setName(name);
         this.setEnabled(enabled);
         this.createdAt = OffsetDateTime.now();
@@ -50,7 +52,7 @@ public class Category {
     }
 
     public void setName(String name) {
-        if (StringUtils.hasText(name)) {
+        if (!StringUtils.hasText(name)) {
             throw new IllegalArgumentException();
         }
         this.name = name;
