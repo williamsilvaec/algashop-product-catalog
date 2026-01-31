@@ -6,25 +6,24 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class ProductInput {
+public record ProductInput(
+        @NotBlank
+        String name,
 
-    @NotBlank
-    private String name;
+        @NotBlank
+        String brand,
 
-    @NotBlank
-    private String brand;
+        @NotNull
+        BigDecimal regularPrice,
 
-    @NotNull
-    private BigDecimal regularPrice;
+        @NotNull
+        BigDecimal salePrice,
 
-    @NotNull
-    private BigDecimal salePrice;
+        @NotNull
+        Boolean enabled,
 
-    @NotNull
-    private Boolean enabled;
+        @NotNull
+        UUID categoryId,
 
-    @NotNull
-    private UUID categoryId;
-
-    private String description;
-}
+        String description
+) { }
