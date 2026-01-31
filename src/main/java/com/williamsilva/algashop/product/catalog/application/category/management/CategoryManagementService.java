@@ -1,7 +1,7 @@
 package com.williamsilva.algashop.product.catalog.application.category.management;
 
-import com.williamsilva.algashop.product.catalog.application.ResourceNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
+import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
@@ -39,6 +39,6 @@ public class CategoryManagementService {
 
     private Category findCategoryById(UUID categoryId) {
         return categoryRepository.findById(categoryId)
-                .orElseThrow(ResourceNotFoundException::new);
+                .orElseThrow(() -> new CategoryNotFoundException(categoryId));
     }
 }

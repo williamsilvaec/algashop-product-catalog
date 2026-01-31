@@ -5,6 +5,7 @@ import com.williamsilva.algashop.product.catalog.application.product.management.
 import com.williamsilva.algashop.product.catalog.application.product.query.PageModel;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductDetailOutput;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductQueryService;
+import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,13 @@ public class ProductController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ProductDetailOutput create(@RequestBody @Valid ProductInput input) {
-        UUID productId = productManagementApplicationService.create(input);
+        UUID productId;
+        try {
+            productId = productManagementApplicationService.create(input);
+        } catch (CategoryNotFoundException e) {
+            throw new UnprocessableContentException(e.getMessage(), e);
+        }
+
         return productQueryService.findById(productId);
     }
 

@@ -1,10 +1,10 @@
 package com.williamsilva.algashop.product.catalog.infrastructure.persistence.category;
 
-import com.williamsilva.algashop.product.catalog.application.ResourceNotFoundException;
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryDetailOutput;
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryQueryService;
 import com.williamsilva.algashop.product.catalog.application.product.query.PageModel;
 import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
+import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,9 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
 
     @Override
     public CategoryDetailOutput findById(UUID categoryId) {
-        Category category = repository.findById(categoryId).orElseThrow(ResourceNotFoundException::new);
+        Category category = repository.findById(categoryId)
+                .orElseThrow(() -> new CategoryNotFoundException(categoryId));
+
         return convert(category);
     }
 
