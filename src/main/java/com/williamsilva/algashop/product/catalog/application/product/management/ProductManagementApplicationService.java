@@ -4,6 +4,7 @@ import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryRepository;
 import com.williamsilva.algashop.product.catalog.domain.model.product.Product;
+import com.williamsilva.algashop.product.catalog.domain.model.product.ProductNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.product.ProductRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +28,41 @@ public class ProductManagementApplicationService {
         return product.getId();
     }
 
-    public void update(UUID product, ProductInput input) {
+    public void update(UUID productId, ProductInput input) {
+        Product product = findProduct(productId);
+        Category category = findCategory(input.categoryId());
 
+        updateProduct(product, input);
+
+        productRepository.save(product);
     }
 
-    public void disable(UUID product) {
+    public void disable(UUID productId) {
+        Product product = findProduct(productId);
+        product.disable();
 
+        productRepository.save(product);
+    }
+
+    public void enable(UUID productId) {
+        Product product = findProduct(productId);
+        product.enable();
+
+        productRepository.save(product);
+    }
+
+    private void updateProduct(Product product, ProductInput input) {
+        product.setName(input.name());
+        product.setBrand(input.brand());
+        product.setDescription(input.description());
+        product.setRegularPrice(input.regularPrice());
+        product.setSalePrice(input.salePrice());
+        product.setEnabled(input.enabled());
+    }
+
+    private Product findProduct(UUID productId) {
+        return productRepository.findById(productId)
+                .orElseThrow(() -> new ProductNotFoundException(productId));
     }
 
     private Product mapToProduct(ProductInput input) {
