@@ -33,6 +33,7 @@ public class ProductManagementApplicationService {
         Category category = findCategory(input.categoryId());
 
         updateProduct(product, input);
+        product.setCategory(category);
 
         productRepository.save(product);
     }
@@ -74,6 +75,7 @@ public class ProductManagementApplicationService {
                 .regularPrice(input.regularPrice())
                 .salePrice(input.salePrice())
                 .enabled(input.enabled())
+                .category(category)
                 .build();
     }
 

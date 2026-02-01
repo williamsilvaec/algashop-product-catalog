@@ -2,6 +2,7 @@ package com.williamsilva.algashop.product.catalog.domain.model.product;
 
 import com.williamsilva.algashop.product.catalog.domain.model.DomainException;
 import com.williamsilva.algashop.product.catalog.domain.model.IdGenerator;
+import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -9,6 +10,8 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
@@ -45,10 +48,14 @@ public class Product {
     @LastModifiedBy
     private UUID lastModifiedByUserId;
 
+    @DocumentReference
+    @Field(name = "categoryId")
+    private Category category;
+
     protected Product() {}
 
     public Product(String name, String brand, String description,
-                   Boolean enabled, BigDecimal regularPrice, BigDecimal salePrice) {
+                   Boolean enabled, BigDecimal regularPrice, BigDecimal salePrice, Category category) {
         this.setId(IdGenerator.generateTimeBasedUUID());
         this.setName(name);
         this.setBrand(brand);
@@ -56,6 +63,7 @@ public class Product {
         this.setEnabled(enabled);
         this.setRegularPrice(regularPrice);
         this.setSalePrice(salePrice);
+        this.setCategory(category);
     }
 
     public void setName(String name) {
@@ -109,6 +117,11 @@ public class Product {
     public void setEnabled(Boolean enabled) {
         Objects.requireNonNull(enabled);
         this.enabled = enabled;
+    }
+
+    public void setCategory(Category category) {
+        Objects.requireNonNull(category);
+        this.category = category;
     }
 
     public void disable() {
@@ -188,6 +201,10 @@ public class Product {
         return lastModifiedByUserId;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
     public static ProductBuilder builder() {
         return new ProductBuilder();
     }
@@ -199,6 +216,7 @@ public class Product {
         private BigDecimal regularPrice;
         private BigDecimal salePrice;
         private Boolean enabled;
+        private Category category;
 
         public ProductBuilder name(String name) {
             this.name = name;
@@ -229,8 +247,13 @@ public class Product {
             return this;
         }
 
+        public ProductBuilder category(Category category) {
+            this.category = category;
+            return this;
+        }
+
         public Product build() {
-            return new Product(name, brand, description, enabled, regularPrice, salePrice);
+            return new Product(name, brand, description, enabled, regularPrice, salePrice, category);
         }
     }
 
