@@ -11,6 +11,8 @@ import com.williamsilva.algashop.product.catalog.domain.model.product.ProductNot
 import com.williamsilva.algashop.product.catalog.domain.model.product.ProductRepository;
 import com.williamsilva.algashop.product.catalog.infrastructure.util.Slugfier;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -33,8 +35,10 @@ public class ProductQueryServiceImpl implements ProductQueryService {
     }
 
     @Override
-    public PageModel<ProductSummaryOutput> filter(Integer size, Integer number) {
-        return null;
+    public PageModel<ProductSummaryOutput> filter(Integer size, Integer page) {
+        Page<Product> products = productRepository.findAll(PageRequest.of(page, size));
+        Page<ProductSummaryOutput> productSummaryOutputPage = products.map(this::convertToSummaryOutput);
+        return PageModel.of(productSummaryOutputPage);
     }
 
     private ProductDetailOutput convertToOutput(Product product) {

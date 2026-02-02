@@ -1,5 +1,7 @@
 package com.williamsilva.algashop.product.catalog.application.product.query;
 
+import org.springframework.data.domain.Page;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +14,16 @@ public class PageModel<T> {
     private long totalElements;
 
     private List<T> content = new ArrayList<>();
+
+    public static <T> PageModel<T> of(Page<T> page) {
+        PageModel<T> pageModel = new PageModel<>();
+        pageModel.number = page.getNumber();
+        pageModel.size = page.getSize();
+        pageModel.totalPages = page.getTotalPages();
+        pageModel.totalElements = page.getTotalElements();
+        pageModel.content = page.getContent();
+        return pageModel;
+    }
 
     public int getNumber() {
         return number;
