@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public class ProductDetailOutput {
+public class ProductSummaryOutput {
 
     private UUID id;
     private OffsetDateTime addedAt;
@@ -15,7 +15,8 @@ public class ProductDetailOutput {
     private Boolean inStock;
     private Boolean enabled;
     private CategoryMinimalOutput category;
-    private String description;
+
+    private String shortDescription;
 
     private String slug;
     private Boolean hasDiscount;
@@ -95,12 +96,12 @@ public class ProductDetailOutput {
         this.category = category;
     }
 
-    public String getDescription() {
-        return description;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public String getSlug() {
