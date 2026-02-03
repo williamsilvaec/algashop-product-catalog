@@ -3,6 +3,7 @@ package com.williamsilva.algashop.product.catalog.infrastructure.persistence.pro
 import com.williamsilva.algashop.product.catalog.application.product.query.CategoryMinimalOutput;
 import com.williamsilva.algashop.product.catalog.application.product.query.PageModel;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductDetailOutput;
+import com.williamsilva.algashop.product.catalog.application.product.query.ProductFilter;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductQueryService;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductSummaryOutput;
 import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
@@ -35,8 +36,8 @@ public class ProductQueryServiceImpl implements ProductQueryService {
     }
 
     @Override
-    public PageModel<ProductSummaryOutput> filter(Integer size, Integer page) {
-        Page<Product> products = productRepository.findAll(PageRequest.of(page, size));
+    public PageModel<ProductSummaryOutput> filter(ProductFilter filter) {
+        Page<Product> products = productRepository.findAll(PageRequest.of(filter.getPage(), filter.getSize()));
         Page<ProductSummaryOutput> productSummaryOutputPage = products.map(this::convertToSummaryOutput);
         return PageModel.of(productSummaryOutputPage);
     }

@@ -4,6 +4,7 @@ import com.williamsilva.algashop.product.catalog.application.product.management.
 import com.williamsilva.algashop.product.catalog.application.product.management.ProductManagementApplicationService;
 import com.williamsilva.algashop.product.catalog.application.product.query.PageModel;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductDetailOutput;
+import com.williamsilva.algashop.product.catalog.application.product.query.ProductFilter;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductQueryService;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductSummaryOutput;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryNotFoundException;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -76,10 +76,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public PageModel<ProductSummaryOutput> filter(
-            @RequestParam(name = "page", required = false) Integer page,
-            @RequestParam(name = "size", required = false) Integer size
-    ) {
-        return productQueryService.filter(size, page);
+    public PageModel<ProductSummaryOutput> filter(ProductFilter productFilter) {
+        return productQueryService.filter(productFilter);
     }
 }
