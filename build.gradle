@@ -72,6 +72,10 @@ contracts {
 	packageWithBaseClasses = "com.williamsilva.algashop.product.catalog.contract.base"
 }
 
+tasks.named('check') {
+	dependsOn(test, contractTest, integrationTest)
+}
+
 tasks.named('contractTest') {
 	outputs.dir snippetsDir
 	useJUnitPlatform()

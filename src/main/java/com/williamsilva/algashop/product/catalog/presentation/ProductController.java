@@ -2,7 +2,7 @@ package com.williamsilva.algashop.product.catalog.presentation;
 
 import com.williamsilva.algashop.product.catalog.application.product.management.ProductInput;
 import com.williamsilva.algashop.product.catalog.application.product.management.ProductManagementApplicationService;
-import com.williamsilva.algashop.product.catalog.application.product.query.PageModel;
+import com.williamsilva.algashop.product.catalog.application.PageModel;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductDetailOutput;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductFilter;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductQueryService;

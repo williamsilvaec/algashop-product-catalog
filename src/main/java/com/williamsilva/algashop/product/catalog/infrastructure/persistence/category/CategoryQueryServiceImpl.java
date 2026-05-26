@@ -2,7 +2,7 @@ package com.williamsilva.algashop.product.catalog.infrastructure.persistence.cat
 
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryDetailOutput;
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryQueryService;
-import com.williamsilva.algashop.product.catalog.application.product.query.PageModel;
+import com.williamsilva.algashop.product.catalog.application.PageModel;
 import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryRepository;

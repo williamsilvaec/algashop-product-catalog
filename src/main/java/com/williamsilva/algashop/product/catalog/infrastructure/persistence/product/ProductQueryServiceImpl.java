@@ -1,7 +1,7 @@
 package com.williamsilva.algashop.product.catalog.infrastructure.persistence.product;
 
 import com.williamsilva.algashop.product.catalog.application.product.query.CategoryMinimalOutput;
-import com.williamsilva.algashop.product.catalog.application.product.query.PageModel;
+import com.williamsilva.algashop.product.catalog.application.PageModel;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductDetailOutput;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductFilter;
 import com.williamsilva.algashop.product.catalog.application.product.query.ProductQueryService;

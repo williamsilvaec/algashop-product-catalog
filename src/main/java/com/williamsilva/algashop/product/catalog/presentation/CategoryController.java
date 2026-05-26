@@ -1,10 +1,10 @@
 package com.williamsilva.algashop.product.catalog.presentation;
 
 import com.williamsilva.algashop.product.catalog.application.category.management.CategoryInput;
-import com.williamsilva.algashop.product.catalog.application.category.management.CategoryManagementService;
+import com.williamsilva.algashop.product.catalog.application.category.management.CategoryManagementApplicationService;
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryDetailOutput;
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryQueryService;
-import com.williamsilva.algashop.product.catalog.application.product.query.PageModel;
+import com.williamsilva.algashop.product.catalog.application.PageModel;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,12 +25,12 @@ import java.util.UUID;
 public class CategoryController {
 
     private final CategoryQueryService categoryQueryService;
-    private final CategoryManagementService categoryManagementService;
+    private final CategoryManagementApplicationService categoryManagementApplicationService;
 
     public CategoryController(CategoryQueryService categoryQueryService,
-                              CategoryManagementService categoryManagementService) {
+                              CategoryManagementApplicationService categoryManagementApplicationService) {
         this.categoryQueryService = categoryQueryService;
-        this.categoryManagementService = categoryManagementService;
+        this.categoryManagementApplicationService = categoryManagementApplicationService;
     }
 
     @GetMapping
@@ -42,7 +42,7 @@ public class CategoryController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CategoryDetailOutput create(@RequestBody @Valid CategoryInput input) {
-        UUID categoryId = categoryManagementService.create(input);
+        UUID categoryId = categoryManagementApplicationService.create(input);
         return categoryQueryService.findById(categoryId);
     }
 
@@ -55,13 +55,13 @@ public class CategoryController {
     public CategoryDetailOutput update(
             @PathVariable UUID categoryId,
             @RequestBody @Valid CategoryInput input) {
-        categoryManagementService.update(categoryId, input);
+        categoryManagementApplicationService.update(categoryId, input);
         return categoryQueryService.findById(categoryId);
     }
 
     @DeleteMapping("/{categoryId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void disable(@PathVariable UUID categoryId) {
-        categoryManagementService.disable(categoryId);
+        categoryManagementApplicationService.disable(categoryId);
     }
 }

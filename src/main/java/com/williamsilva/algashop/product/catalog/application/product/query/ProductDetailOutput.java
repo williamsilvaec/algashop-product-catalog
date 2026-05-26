@@ -23,6 +23,10 @@ public class ProductDetailOutput {
     private Integer quantityInStock;
     private Integer discountPercentageRounded;
 
+    public static ProductDetailOutputBuilder builder() {
+        return new ProductDetailOutputBuilder();
+    }
+
     public UUID getId() {
         return id;
     }
@@ -133,5 +137,114 @@ public class ProductDetailOutput {
 
     public void setDiscountPercentageRounded(Integer discountPercentageRounded) {
         this.discountPercentageRounded = discountPercentageRounded;
+    }
+
+    public static class ProductDetailOutputBuilder {
+        private UUID id;
+        private OffsetDateTime addedAt;
+        private String name;
+        private String brand;
+        private BigDecimal regularPrice;
+        private BigDecimal salePrice;
+        private Boolean inStock;
+        private Boolean enabled;
+        private CategoryMinimalOutput category;
+        private String description;
+        private String slug;
+        private Boolean hasDiscount;
+        private Integer quantityInStock;
+        private Integer discountPercentageRounded;
+
+        ProductDetailOutputBuilder() {
+        }
+
+        public ProductDetailOutputBuilder id(UUID id) {
+            this.id = id;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder addedAt(OffsetDateTime addedAt) {
+            this.addedAt = addedAt;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder brand(String brand) {
+            this.brand = brand;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder regularPrice(BigDecimal regularPrice) {
+            this.regularPrice = regularPrice;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder salePrice(BigDecimal salePrice) {
+            this.salePrice = salePrice;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder inStock(Boolean inStock) {
+            this.inStock = inStock;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder enabled(Boolean enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder category(CategoryMinimalOutput category) {
+            this.category = category;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder slug(String slug) {
+            this.slug = slug;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder hasDiscount(Boolean hasDiscount) {
+            this.hasDiscount = hasDiscount;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder quantityInStock(Integer quantityInStock) {
+            this.quantityInStock = quantityInStock;
+            return this;
+        }
+
+        public ProductDetailOutputBuilder discountPercentageRounded(Integer discountPercentageRounded) {
+            this.discountPercentageRounded = discountPercentageRounded;
+            return this;
+        }
+
+        public ProductDetailOutput build() {
+            ProductDetailOutput productDetailOutput = new ProductDetailOutput();
+            productDetailOutput.setId(id);
+            productDetailOutput.setAddedAt(addedAt);
+            productDetailOutput.setName(name);
+            productDetailOutput.setBrand(brand);
+            productDetailOutput.setRegularPrice(regularPrice);
+            productDetailOutput.setSalePrice(salePrice);
+            productDetailOutput.setInStock(inStock);
+            productDetailOutput.setEnabled(enabled);
+            productDetailOutput.setCategory(category);
+            productDetailOutput.setDescription(description);
+            productDetailOutput.setSlug(slug);
+            productDetailOutput.setHasDiscount(hasDiscount);
+            productDetailOutput.setQuantityInStock(quantityInStock);
+            productDetailOutput.setDiscountPercentageRounded(discountPercentageRounded);
+            return productDetailOutput;
+        }
     }
 }
