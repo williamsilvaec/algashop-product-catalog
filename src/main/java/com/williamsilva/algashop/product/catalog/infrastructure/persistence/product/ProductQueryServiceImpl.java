@@ -10,7 +10,7 @@ import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
 import com.williamsilva.algashop.product.catalog.domain.model.product.Product;
 import com.williamsilva.algashop.product.catalog.domain.model.product.ProductNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.product.ProductRepository;
-import com.williamsilva.algashop.product.catalog.infrastructure.util.Slugfier;
+import com.williamsilva.algashop.product.catalog.infrastructure.utility.Slugfier;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

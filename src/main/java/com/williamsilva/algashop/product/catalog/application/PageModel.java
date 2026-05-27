@@ -15,6 +15,10 @@ public class PageModel<T> {
 
     private List<T> content = new ArrayList<>();
 
+    public static <T> PageModelBuilder<T> builder() {
+        return new PageModelBuilder<>();
+    }
+
     public static <T> PageModel<T> of(Page<T> page) {
         PageModel<T> pageModel = new PageModel<>();
         pageModel.number = page.getNumber();
@@ -81,5 +85,51 @@ public class PageModel<T> {
     @Override
     public int hashCode() {
         return Objects.hash(number, size, totalPages, totalElements, content);
+    }
+
+    public static class PageModelBuilder<T> {
+        private int number;
+        private int size;
+        private int totalPages;
+        private long totalElements;
+        private List<T> content = new ArrayList<>();
+
+        PageModelBuilder() {
+        }
+
+        public PageModelBuilder<T> number(int number) {
+            this.number = number;
+            return this;
+        }
+
+        public PageModelBuilder<T> size(int size) {
+            this.size = size;
+            return this;
+        }
+
+        public PageModelBuilder<T> totalPages(int totalPages) {
+            this.totalPages = totalPages;
+            return this;
+        }
+
+        public PageModelBuilder<T> totalElements(long totalElements) {
+            this.totalElements = totalElements;
+            return this;
+        }
+
+        public PageModelBuilder<T> content(List<T> content) {
+            this.content = content;
+            return this;
+        }
+
+        public PageModel<T> build() {
+            PageModel<T> pageModel = new PageModel<>();
+            pageModel.setNumber(number);
+            pageModel.setSize(size);
+            pageModel.setTotalPages(totalPages);
+            pageModel.setTotalElements(totalElements);
+            pageModel.setContent(content);
+            return pageModel;
+        }
     }
 }

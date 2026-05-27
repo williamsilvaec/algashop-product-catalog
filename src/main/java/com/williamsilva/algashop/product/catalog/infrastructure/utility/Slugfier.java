@@ -1,4 +1,4 @@
-package com.williamsilva.algashop.product.catalog.infrastructure.util;
+package com.williamsilva.algashop.product.catalog.infrastructure.utility;
 
 import java.text.Normalizer;
 import java.util.Locale;
