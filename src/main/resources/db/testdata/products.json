@@ -13,7 +13,7 @@
     "categoryId": { "$uuid": "e0c4271d-0016-4a42-82fe-bf695a9fb9b8" },
     "quantityInStock": 50,
     "description": "15-inch laptop, Intel Core i9, 32GB RAM, 1TB SSD, NVIDIA GeForce RTX 3080",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -31,7 +31,7 @@
     "categoryId": { "$uuid": "e0c4271d-0016-4a42-82fe-bf695a9fb9b8" },
     "quantityInStock": 11,
     "description": "Gaming laptop, AMD Ryzen 9, 64GB RAM, 2TB NVMe SSD, NVIDIA GeForce RTX 3090",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -49,7 +49,7 @@
     "categoryId": { "$uuid": "c4edfdd5-c71e-47aa-8f00-2925abbbb75f" },
     "quantityInStock": 6,
     "description": "Liquid-cooled gaming PC, AMD Ryzen 7, 32GB RGB RAM, 1TB NVMe SSD, NVIDIA GeForce GTX 3070",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -67,7 +67,7 @@
     "categoryId": { "$uuid": "c4edfdd5-c71e-47aa-8f00-2925abbbb75f" },
     "quantityInStock": 0,
     "description": "Tower server, AMD EPYC, 256GB ECC RAM, 8TB SATA HDD",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -85,7 +85,7 @@
     "categoryId": { "$uuid": "c4edfdd5-c71e-47aa-8f00-2925abbbb75f" },
     "quantityInStock": 0,
     "description": "Workstation tower, Celeron D processors, 4GB RAM, HD 100GB",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -103,7 +103,7 @@
     "categoryId": { "$uuid": "ef5981cb-ed9b-42f0-a417-533cc43c605a" },
     "quantityInStock": 50,
     "description": "DDR4 4000Mhz for laptop",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -121,7 +121,7 @@
     "categoryId": { "$uuid": "ef5981cb-ed9b-42f0-a417-533cc43c605a" },
     "quantityInStock": 100,
     "description": "DDR5 5899Mhz \n3x8GB Pack ",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -139,7 +139,7 @@
     "categoryId": { "$uuid": "ef5981cb-ed9b-42f0-a417-533cc43c605a" },
     "quantityInStock": 10,
     "description": "DDR5 5899Mhz 3x8GB",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -157,7 +157,7 @@
     "categoryId": { "$uuid": "ef5981cb-ed9b-42f0-a417-533cc43c605a" },
     "quantityInStock": 554,
     "description": "DDR5 5899Mhz 3x8GB",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -175,7 +175,7 @@
     "categoryId": { "$uuid": "d2468e17-35f2-46e7-b51d-24c01315ab29" },
     "quantityInStock": 88,
     "description": "Andruuid 12\nStorage 30GB\nRAM 4GB\n4G",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -193,7 +193,7 @@
     "categoryId": { "$uuid": "d2468e17-35f2-46e7-b51d-24c01315ab29" },
     "quantityInStock": 55,
     "description": "Andruuid 8 \n3G\nStorage 10GB\nRAM 1GB",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   },
@@ -211,7 +211,7 @@
     "categoryId": { "$uuid": "c4edfdd5-c71e-47aa-8f00-2925abbbb75f" },
     "quantityInStock": 155,
     "description": "27-inch 4K monitor, IPS panel, 60Hz refresh rate, HDR support",
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.product.Product",
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.product.Product",
     "createdByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" },
     "lastModifiedByUserId": { "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87" }
   }

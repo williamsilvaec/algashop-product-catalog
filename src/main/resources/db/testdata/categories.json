@@ -17,7 +17,7 @@
     "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87"
   },
   "version": 0,
-  "_class": "com.algaworks.algashop.product.catalog.domain.model.category.Category"
+  "_class": "com.williamsilva.algashop.product.catalog.domain.model.category.Category"
 },
   {
     "_id": {
@@ -38,7 +38,7 @@
       "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87"
     },
     "version": 0,
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.category.Category"
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.category.Category"
   },
   {
     "_id": {
@@ -59,7 +59,7 @@
       "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87"
     },
     "version": 0,
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.category.Category"
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.category.Category"
   },
   {
     "_id": {
@@ -80,5 +80,5 @@
       "$uuid": "019ac149-6c80-7842-aa23-781d8d390f87"
     },
     "version": 0,
-    "_class": "com.algaworks.algashop.product.catalog.domain.model.category.Category"
+    "_class": "com.williamsilva.algashop.product.catalog.domain.model.category.Category"
   }]
