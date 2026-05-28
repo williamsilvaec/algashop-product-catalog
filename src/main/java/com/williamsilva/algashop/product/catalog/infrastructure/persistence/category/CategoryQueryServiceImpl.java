@@ -4,7 +4,6 @@ import com.williamsilva.algashop.product.catalog.application.PageModel;
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryDetailOutput;
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryFilter;
 import com.williamsilva.algashop.product.catalog.application.category.query.CategoryQueryService;
-import com.williamsilva.algashop.product.catalog.application.utility.Mapper;
 import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryRepository;
@@ -25,12 +24,10 @@ import java.util.stream.Collectors;
 public class CategoryQueryServiceImpl implements CategoryQueryService {
 
     private final CategoryRepository repository;
-    private final Mapper mapper;
     private final MongoOperations mongoOperations;
 
-    public CategoryQueryServiceImpl(CategoryRepository repository, Mapper mapper, MongoOperations mongoOperations) {
+    public CategoryQueryServiceImpl(CategoryRepository repository, MongoOperations mongoOperations) {
         this.repository = repository;
-        this.mapper = mapper;
         this.mongoOperations = mongoOperations;
     }
 
@@ -54,7 +51,7 @@ public class CategoryQueryServiceImpl implements CategoryQueryService {
         }
 
         List<CategoryDetailOutput> categoryOutputs = categorys.stream()
-                .map(p -> mapper.convert(p, CategoryDetailOutput.class))
+                .map(this::convert)
                 .collect(Collectors.toList());
 
         return PageModel.<CategoryDetailOutput>builder()

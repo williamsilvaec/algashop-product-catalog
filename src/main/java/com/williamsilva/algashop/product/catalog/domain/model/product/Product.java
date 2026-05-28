@@ -49,9 +49,9 @@ public class Product {
     @LastModifiedBy
     private UUID lastModifiedByUserId;
 
-    @DocumentReference
-    @Field(name = "categoryId")
-    private Category category;
+    private UUID categoryId;
+
+    private ProductCategory category;
 
     private Integer discountPercentageRounded;
 
@@ -126,7 +126,8 @@ public class Product {
 
     public void setCategory(Category category) {
         Objects.requireNonNull(category);
-        this.category = category;
+        this.categoryId = category.getId();
+        this.category = ProductCategory.of(category);
     }
 
     public void disable() {
@@ -223,7 +224,11 @@ public class Product {
         return lastModifiedByUserId;
     }
 
-    public Category getCategory() {
+    public UUID getCategoryId() {
+        return categoryId;
+    }
+
+    public ProductCategory getCategory() {
         return category;
     }
 
