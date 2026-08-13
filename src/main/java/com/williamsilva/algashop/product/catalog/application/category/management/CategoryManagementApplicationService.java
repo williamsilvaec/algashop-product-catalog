@@ -1,5 +1,7 @@
 package com.williamsilva.algashop.product.catalog.application.category.management;
 
+import com.williamsilva.algashop.product.catalog.application.ApplicationMessagePublisher;
+import com.williamsilva.algashop.product.catalog.application.category.event.CategoryUpdatedEvent;
 import com.williamsilva.algashop.product.catalog.domain.model.category.Category;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryNotFoundException;
 import com.williamsilva.algashop.product.catalog.domain.model.category.CategoryRepository;
@@ -12,9 +14,12 @@ import java.util.UUID;
 public class CategoryManagementApplicationService {
 
     private final CategoryRepository categoryRepository;
+    private final ApplicationMessagePublisher applicationMessagePublisher;
 
-    public CategoryManagementApplicationService(CategoryRepository categoryRepository) {
+    public CategoryManagementApplicationService(CategoryRepository categoryRepository,
+                                                ApplicationMessagePublisher applicationMessagePublisher) {
         this.categoryRepository = categoryRepository;
+        this.applicationMessagePublisher = applicationMessagePublisher;
     }
 
     public UUID create(@Valid CategoryInput input) {
@@ -29,12 +34,20 @@ public class CategoryManagementApplicationService {
         category.setName(input.name());
         category.setEnabled(input.enabled());
         categoryRepository.save(category);
+
+        applicationMessagePublisher.send(
+                new CategoryUpdatedEvent(category.getId(), category.getName(), category.getEnabled())
+        );
     }
 
     public void disable(UUID categoryId) {
         Category category = findCategoryById(categoryId);
         category.setEnabled(false);
         categoryRepository.save(category);
+
+        applicationMessagePublisher.send(
+                new CategoryUpdatedEvent(category.getId(), category.getName(), category.getEnabled())
+        );
     }
 
     private Category findCategoryById(UUID categoryId) {
